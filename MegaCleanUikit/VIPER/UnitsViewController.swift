@@ -8,6 +8,14 @@
 import UIKit
 
 class UnitsViewController: UIViewController, UnitsPresenterToViewProtocol {
+    func onFetchList() {
+        
+    }
+    
+    func showEmptyState() {
+        
+    }
+    
     
     var presenter : UnitsViewToPresenterProtocol?
 

@@ -8,6 +8,14 @@
 import Foundation
 
 class UnitsInteractor : UnitsPresenterToInteractorProtocol {
+    func loadLists() {
+        
+    }
     
-    var presenter : UnitsInteractorToPresenterProtocol? 
+    func getListAt(indexPath: IndexPath) {
+        
+    }
+    
+    
+var presenter: UnitsInteractorToPresenterProtocol?
 }

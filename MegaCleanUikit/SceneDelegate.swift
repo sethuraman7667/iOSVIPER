@@ -16,11 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let userRouter = UserRouter.start()
-        let initialVc = userRouter.entry
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = initialVc
+        window.rootViewController = UnitsRouter.createScreen()
         self.window = window
         window.makeKeyAndVisible()
     }

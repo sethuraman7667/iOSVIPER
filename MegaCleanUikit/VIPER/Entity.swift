@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct User : Codable {
+struct UnitsEntity : Codable {
     let name : String
 }
