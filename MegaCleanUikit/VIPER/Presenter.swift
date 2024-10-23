@@ -1,53 +1,18 @@
-//
-//  Presenter.swift
-//  MegaCleanUikit
-//
-//  Created by Subash Sethuraman A on 19/10/24.
-//
 
-import Foundation
-
-
-class UnitsPresenter : UnitsViewToPresenterProtocol {
+class UnitsPresenter: ViewToPresenterUnitsProtocol, InteractorToPresenterUnitsProtocol {
+    func fetchList() -> String{
+        return ""
+    }
+    
+    
+    
+   
+    var interactor: PresenterToInteractorUnitsProtocol?
+    var router: PresenterToRouterUnitsProtocol?
+    var view: PresenterToViewUnitsProtocol?
+    
+    
     func viewDidLoad() {
-        
+        interactor?.loadList()
     }
-    
-    func numberOfRowInSection() -> Int {
-        return 0
-    }
-    
-    func listAt(indexPath: IndexPath) -> UnitsEntity {
-        return UnitsEntity(name: "Subash")
-    }
-    
-    func selectRowAt(indexPath: IndexPath) {
-        
-    }
-    
-    func deleteRowAt(indexPath: IndexPath) {
-        
-    }
-    
-    func addTaskList() {
-        
-    }
-    
-    var router: UnitsPresenterToRouterProtocol?
-    var interactor: UnitsPresenterToInteractorProtocol?
-    var view: UnitsPresenterToViewProtocol?
-    
-}
-
-
-extension UnitsPresenter : UnitsInteractorToPresenterProtocol {
-    func fetchedList(taskList: [UnitsEntity]) {
-        
-    }
-    
-    func selectedList(taskList: UnitsEntity) {
-        
-    }
-    
-    
 }

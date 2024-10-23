@@ -1,64 +1,36 @@
-//
-//  UnitProtocol.swift
-//  MegaCleanUikit
-//
-//  Created by Subash Sethuraman A on 22/10/24.
-//
-
-import Foundation
 import UIKit
 
-///Presenter
-// Input to presenter
-protocol UnitsViewToPresenterProtocol {
-    
-    var view : UnitsPresenterToViewProtocol? { get set}
-    var interactor : UnitsPresenterToInteractorProtocol? {get set}
-    var router : UnitsPresenterToRouterProtocol? {get set}
+
+// View <--> Presenter
+protocol ViewToPresenterUnitsProtocol {
+    var view : PresenterToViewUnitsProtocol? {get set}
+    var interactor : PresenterToInteractorUnitsProtocol? {get set}
+    var router : PresenterToRouterUnitsProtocol? {get set}
     
     func viewDidLoad()
-    func numberOfRowInSection() -> Int
-    func listAt(indexPath : IndexPath) -> UnitsEntity
-    func selectRowAt(indexPath : IndexPath)
-    func deleteRowAt(indexPath : IndexPath)
-    func addTaskList()
+    func fetchList() -> String
+    
+//    func getName() -> String
+}
+
+protocol PresenterToViewUnitsProtocol {
     
 }
 
-// Output to presenter
-protocol UnitsPresenterToViewProtocol {
-    func onFetchList()
-    func showEmptyState()
+//Interactor <--> Presenter
+protocol PresenterToInteractorUnitsProtocol {
+    var presenter : InteractorToPresenterUnitsProtocol? {get set}
+    func loadList()
+}
+
+protocol InteractorToPresenterUnitsProtocol {
+    func fetchList() -> String
 }
 
 
-///Interactor
-// Output to presenter
-protocol UnitsInteractorToPresenterProtocol : AnyObject {
-    func fetchedList(taskList : [UnitsEntity])
-    func selectedList(taskList : UnitsEntity)
-}
-
-// Input to presenter
-protocol UnitsPresenterToInteractorProtocol {
-    var presenter : UnitsInteractorToPresenterProtocol? {get set}
-    
-    func loadLists()
-    func getListAt(indexPath : IndexPath)
+//Router <--> Presenter
+protocol PresenterToRouterUnitsProtocol {
+    static func createScreen() -> UINavigationController
 }
 
 
-///Router
-// Input to Router
-// Output to presenter
-protocol UnitsPresenterToRouterProtocol {
-   static func createScreen() -> UINavigationController
-    
-    func pushToAddListOn(view : UnitsPresenterToViewProtocol)
-//    func pushToTaskListOn(view : UnitsPresenterToViewProtocol)
-}
-
-// Input to presenter
-protocol UnitsRouterToPresenterProtocol {
-    
-}

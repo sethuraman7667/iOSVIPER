@@ -1,21 +1,8 @@
-//
-//  Interactor.swift
-//  MegaCleanUikit
-//
-//  Created by Subash Sethuraman A on 19/10/24.
-//
 
-import Foundation
-
-class UnitsInteractor : UnitsPresenterToInteractorProtocol {
-    func loadLists() {
-        
+class UnitsInteractor : PresenterToInteractorUnitsProtocol {
+    var presenter : InteractorToPresenterUnitsProtocol?
+    
+    func loadList() {
+        presenter?.fetchList()
     }
-    
-    func getListAt(indexPath: IndexPath) {
-        
-    }
-    
-    
-var presenter: UnitsInteractorToPresenterProtocol?
 }
