@@ -3,7 +3,11 @@ class UnitsInteractor : PresenterToInteractorUnitsProtocol {
     var presenter : InteractorToPresenterUnitsProtocol?
  
     func loadList() -> [String] {
-        return ["Subash", "Sethu", "Raman"]
+        var stringList: [String] = []
+        for i in 1...100 {
+            stringList.append("Name \(i)")
+        }
+        return stringList
     }
     
     

@@ -52,4 +52,8 @@ extension UnitsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.fetchList().count ?? 1
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(presenter?.fetchList()[indexPath.row])
+    }
 }
