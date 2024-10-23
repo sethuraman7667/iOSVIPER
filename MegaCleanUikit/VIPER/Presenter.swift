@@ -1,18 +1,19 @@
 
+import UIKit
+
 class UnitsPresenter: ViewToPresenterUnitsProtocol, InteractorToPresenterUnitsProtocol {
-    func fetchList() -> String{
-        return ""
-    }
-    
-    
-    
-   
+ 
     var interactor: PresenterToInteractorUnitsProtocol?
     var router: PresenterToRouterUnitsProtocol?
     var view: PresenterToViewUnitsProtocol?
+    var name : [String]? = []
     
+    
+    func fetchList() -> [String]{
+        return name ?? []
+    }
     
     func viewDidLoad() {
-        interactor?.loadList()
+      name =   interactor?.loadList()
     }
 }
